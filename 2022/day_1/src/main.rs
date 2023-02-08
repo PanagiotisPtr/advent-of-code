@@ -1,6 +1,6 @@
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Stdin};
 
-fn solve<T: std::io::Read>(reader: BufReader<T>) -> (u32, u32) {
+fn solve(reader: BufReader<Stdin>) -> (u32, u32) {
     let mut curr = 0u32;
     let mut arr: [u32; 3] = [0, 0, 0];
     for line in reader.lines() {
@@ -30,9 +30,7 @@ fn solve<T: std::io::Read>(reader: BufReader<T>) -> (u32, u32) {
 }
 
 fn main() {
-    let reader = BufReader::new(io::stdin());
-
-    let (part1, part2) = solve(reader);
+    let (part1, part2) = solve(BufReader::new(io::stdin()));
 
     println!("part one: {part1}");
     println!("part two: {part2}");
